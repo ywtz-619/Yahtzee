@@ -2,30 +2,30 @@ apiVersion: v1  # 不要改动
 kind: Plugin  # 不要改动
 metadata:
   # author 和 name 唯一确定一个插件
-  author: langbot  # 插件作者，修改为你的名称
-  name: Hello  # 插件名称，修改为你的插件名称
-  repository: 'https://github.com/langbot-app/HelloPlugin'  # 插件仓库地址，修改为你的插件 GitHub 仓库地址
-  version: 0.1.0  # 插件版本，修改为你的插件版本
+  author: Yuwen  # 插件作者，修改为你的名称
+  name: Yahtzee  # 插件名称，修改为你的插件名称
+  repository: 'https://github.com/ywtz-619/Yahtzee'  # 插件仓库地址，修改为你的插件 GitHub 仓库地址
+  version: "0.1"  # 插件版本，修改为你的插件版本
   description:  # 插件简介，修改为你的插件简介，支持多语言
-    en_US: Plugin for sending hello
-    zh_CN: 示例插件
+    en_US: Play a fun game of Yahtzee anytime, anywhere!
+    zh_Hans: 随时随地来一局好玩的快艇骰子！
   label:  # 插件显示名称，支持多语言。在 WebUI 上会显示对应语言的 label
-    en_US: Hello
-    zh_CN: Hello
+    en_US: Yahtzee
+    zh_Hans: 快艇骰子
 spec:
   # 插件配置（可选），可配置多项
   config:
-    - name: github_token  # 配置项名称
+    - name: command_prefix
       label:  # 配置项显示名称，支持多语言
-        en_US: Github Token
-        zh_CN: Github Token
+        en_US: Command Prefix
+        zh_Hans: 指令前缀
       description:  # 配置项描述，支持多语言
-        en_US: Image downloading requires a Github token
-        zh_CN: 如果不填的话，图片可能会下载失败
+        en_US: The prefix for the command used by this plugin.
+        zh_Hans: 单独用于本插件的指令前缀，默认为空
       type: string  # 配置项类型，支持 string, integer, float, boolean 等
       default: ''  # 配置项默认值
       required: false  # 配置项是否必填
 execution:
   python:
     path: main.py  # 插件主程序路径，必须与上方插件入口代码的文件名相同
-    attr: HelloPlugin  # 插件类名，必须与上方代码中声明的类名相同
+    attr: Yahtzee # 插件类名，必须与上方代码中声明的类名相同
