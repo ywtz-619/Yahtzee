@@ -15,16 +15,16 @@ metadata:
 spec:
   # 插件配置（可选），可配置多项
   config:
-    - name: command_prefix
-      label:  # 配置项显示名称，支持多语言
-        en_US: Command Prefix
-        zh_Hans: 指令前缀
-      description:  # 配置项描述，支持多语言
-        en_US: The prefix for the command used by this plugin.
-        zh_Hans: 单独用于本插件的指令前缀，默认为空
-      type: string  # 配置项类型，支持 string, integer, float, boolean 等
-      default: ''  # 配置项默认值
-      required: false  # 配置项是否必填
+    # - name: command_prefix
+    #   label:  # 配置项显示名称，支持多语言
+    #     en_US: Command Prefix
+    #     zh_Hans: 指令前缀
+    #   description:  # 配置项描述，支持多语言
+    #     en_US: The prefix for the command used by this plugin.
+    #     zh_Hans: 单独用于本插件的指令前缀，默认为空
+    #   type: string  # 配置项类型，支持 string, integer, float, boolean 等
+    #   default: ''  # 配置项默认值
+    #   required: false  # 配置项是否必填
 execution:
   python:
     path: main.py  # 插件主程序路径，必须与上方插件入口代码的文件名相同

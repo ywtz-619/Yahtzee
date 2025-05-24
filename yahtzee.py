@@ -579,12 +579,12 @@ class CommandHandler:
             if sender_id != session.current_player.id:
                 return f"请等待{session.current_player.name}行动"
 
-            if command == Command.ROLL:
+            if command == Command.ROLL and not arg:
                 if session.current_player.state == TurnState.ROLLED:
                     return "投掷机会已用完，请记分"
                 return session.roll()
 
-            elif command == Command.HOLD:
+            elif command == Command.HOLD and arg:
                 if session.current_player.state == TurnState.WAITING:
                     return "还未掷骰子"
                 if session.current_player.state == TurnState.ROLLED:
@@ -597,7 +597,7 @@ class CommandHandler:
                 except Exception:
                     return f"指令有误\n\n{CommandHint.HOLD}"
                   
-            elif command == Command.HOLDROLL:
+            elif command == Command.HOLDROLL and arg:
                 if session.current_player.state == TurnState.WAITING:
                     return "还未掷骰子"
                 if session.current_player.state == TurnState.ROLLED:

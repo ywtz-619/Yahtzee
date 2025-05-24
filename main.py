@@ -20,7 +20,6 @@ class Yahtzee(BasePlugin):
     # 插件加载时触发
     def __init__(self, host: APIHost):
         self.session_manager = GameSessionManager()
-        self.command_prefix = self.config["command_prefix"]
 
     # 异步初始化
     async def initialize(self):
