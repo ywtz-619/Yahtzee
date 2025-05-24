@@ -8,7 +8,7 @@ metadata:
   version: "0.1"  # 插件版本，修改为你的插件版本
   description:  # 插件简介，修改为你的插件简介，支持多语言
     en_US: Play a fun game of Yahtzee anytime, anywhere!
-    zh_Hans: 随时随地来一局好玩的快艇骰子！
+    zh_Hans: 随时随地来一局好玩的快艇骰子！玩法参见GitHub仓库README.md
   label:  # 插件显示名称，支持多语言。在 WebUI 上会显示对应语言的 label
     en_US: Yahtzee
     zh_Hans: 快艇骰子

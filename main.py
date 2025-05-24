@@ -14,7 +14,7 @@ from .yahtzee import COMMAND_PREFIX, Command, CommandHandler, GameSessionManager
 
 
 # 注册插件
-@register(name="Yahtzee", description="随时随地在群聊中来一局好玩的快艇骰子！", version="0.1", author="Yuwen")
+@register(name="Yahtzee", description="随时随地在群聊中来一局好玩的快艇骰子！玩法参见GitHub仓库README.md", version="0.1", author="Yuwen")
 class Yahtzee(BasePlugin):
 
     # 插件加载时触发
