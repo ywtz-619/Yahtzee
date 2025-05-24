@@ -296,6 +296,13 @@ class GameSession:
         player.state = TurnState.ROLLING
         if player.rolls_left == 0:
             player.state = TurnState.ROLLED
+        # 若你已在Yahtzee的地方计分, 每再额外掷出一个Yahtzee则会得到 100 额外的奖分
+        # 印象中有的版本没有这个设定，还是加上
+        counts = Counter([die.value for die in player.dice.dice])
+        if max(counts.values()) == 5 and player.score_board.scores["快艇"]["selected"]:
+            player.score_board.scores["快艇"]["score"] += 100
+            player.score_board.scores["总分"]["score"] += 100
+            return self.messenger.msg_dice(if_yahtzee_bonus=True)
         return self.messenger.msg_dice()
 
     def hold(self, indices: list[int]):
@@ -402,7 +409,7 @@ class Messenger:
             replys.append(CommandHint.STOP)
         return "\n".join(replys)
 
-    def msg_dice(self):
+    def msg_dice(self, if_yahtzee_bonus=False):
         """显示当前玩家骰子状态"""
         player = self.session.current_player
         commands = []
@@ -435,6 +442,8 @@ class Messenger:
             "\n",
             "\n".join(commands),
         ]
+        if if_yahtzee_bonus:
+            replys.insert(2, "再次掷出快艇🚤，额外奖励100分！")
         return "\n".join(replys)
 
     def msg_scoring(self, is_turn_over: bool = False):
